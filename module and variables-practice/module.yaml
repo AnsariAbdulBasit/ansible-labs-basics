@@ -1,0 +1,28 @@
+-
+  name: Setup webserver on all node
+  hosts: all
+  tasks:
+    -
+      name: Update entry into /etc/resolve.conf
+      lineinfile:
+        path: /etc/resolv.conf
+        line: 'nameserver {{  nameserver_ip  }}'
+
+    - name: Ensure group "developer" exists
+      group:
+        name: developer
+        state: present
+
+    - name: Creating user
+      user:
+        name: abdulbasit
+        uid: 1040
+        groups: developer
+
+#    - name: Executing installation script
+#      script: /tmp/install_script.sh
+
+    - name: Start service httpd, if not started
+      service:
+        name: httpd
+        state: started

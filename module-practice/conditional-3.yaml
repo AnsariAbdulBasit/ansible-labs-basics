@@ -1,0 +1,9 @@
+-
+  name: Add name server entry if not already entered
+  hosts: all
+  tasks:
+    - shell: cat /etc/resolv.conf
+      register: command_output
+
+    - shell: echo "nameserver 192.168.56.62" >> /etc/resolv.conf
+      when: command_output.stdout.find('192.168.56.62') == -1

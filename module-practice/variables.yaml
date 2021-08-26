@@ -1,0 +1,17 @@
+-
+  name: Variables practice
+  hosts: localhost
+  vars:
+    car_model: "BMW M3"
+    country_name: USA
+    title: "System admin"
+  tasks:
+    -
+      name: Print my car car model
+      command: echo "My car model is {{ car_model }}"
+    -
+      name: Print my country name
+      command: echo "My country name is {{ country_name }}"
+    -
+      name: Print my job role
+      command: echo "I am {{ title }}"

@@ -1,0 +1,7 @@
+-
+  name: Conditional practices
+  hosts: all
+  tasks:
+    -
+      service: name=httpd state=started
+      when: ansible_host == "192.168.56.13"

@@ -1,0 +1,8 @@
+-
+  name: Copy file to target servers
+  hosts: unix_box_target1
+  tasks:
+    - name: Copy file
+      copy:
+        src: /tmp/test-file.txt
+        dest: /tmp/test-file.txt
